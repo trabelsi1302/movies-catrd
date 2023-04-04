@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AddMovies from "./component/AddMovies";
 import MovieList from "./component/MovieList";
+import SearchBar from "./component/SearchBar";
 
 
 function App() {
@@ -15,11 +16,16 @@ const [movies,setMovies] = useState ([{
 const addMovie =(addmovies) =>{
   setMovies([...movies,addmovies]);
 }
+const [query,setQuery ]=useState("")
   return (
 
     <div className="App">
+   <SearchBar setQuery={setQuery}/>
    <AddMovies addmovies={addMovie}/>
-   <MovieList movies={movies}/>
+   <MovieList movies={movies} query={query}/>
+   
+
+
     </div>
   );
 }
